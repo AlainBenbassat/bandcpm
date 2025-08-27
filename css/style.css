@@ -1,0 +1,27 @@
+h2.now {
+  color: #ff0000 !important;
+  border-top: 3px solid #ff0000;
+  border-bottom: 3px solid #ff0000;
+}
+
+h2.later {
+  color: #009b47   !important;
+  border-top: 3px solid #009b47;
+  border-bottom: 3px solid #009b47;
+}
+
+h2.maybe {
+  color: #0081ff !important;
+  border-top: 3px solid #0081ff;
+  border-bottom: 3px solid #0081ff;
+}
+
+h2.dueDate {
+  border-top: 3px solid #000000;
+  border-bottom: 3px solid #000000;
+}
+
+.numberOfItems {
+  color: darkgray;
+  font-size: 0.7em;
+}

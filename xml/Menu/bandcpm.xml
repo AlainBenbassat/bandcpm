@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/pm-by-due-date</path>
+    <page_callback>CRM_Bandcpm_Page_TasksByDueDate</page_callback>
+    <title>TasksByDueDate</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/pm-by-client</path>
+    <page_callback>CRM_Bandcpm_Page_TasksByClient</page_callback>
+    <title>TasksByClient</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/pm-today</path>
+    <page_callback>CRM_Bandcpm_Page_TasksToday</page_callback>
+    <title>TasksToday</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>
