@@ -25,3 +25,11 @@ h2.dueDate {
   color: darkgray;
   font-size: 0.7em;
 }
+
+.task-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+  align-items: start;
+}
