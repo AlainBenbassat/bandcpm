@@ -53,15 +53,26 @@ class CRM_Bandcpm_Form_Entry extends CRM_Core_Form {
       $this->createEntry($values);
     }
 
+    CRM_Utils_System::redirect(CRM_Utils_System::url('civicrm/timesheet/entries'));
+
     parent::postProcess();
   }
 
   private function updateEntry(array $values): void {
     $mappedValues = $this->mapEntryValues($values);
-    \Civi\Api4\CustomValue::update('Timesheet', FALSE)
+    $cv = \Civi\Api4\CustomValue::update('Timesheet', FALSE)
       ->setValues($mappedValues)
       ->addWhere('id', '=', $values['id'])
-      ->execute();
+      ->execute()
+      ->first();
+
+    // entity_id is not updated via Api4, force it here
+    $sql = "UPDATE civicrm_value_timesheet_3 SET entity_id = %1 WHERE id = %2";
+    $sqlParams = [
+      1 => [$values['entity_id'], 'Integer'],
+      2 => [$values['id'], 'Integer'],
+    ];
+    CRM_Core_DAO::executeQuery($sql, $sqlParams);
   }
 
   private function createEntry(array $values): void {
