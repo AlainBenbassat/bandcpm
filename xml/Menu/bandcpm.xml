@@ -18,4 +18,16 @@
     <title>TasksToday</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
+  <item>
+    <path>civicrm/timesheet</path>
+    <page_callback>CRM_Bandcpm_Page_Timesheet</page_callback>
+    <title>Timesheet</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/timesheet/add</path>
+    <page_callback>CRM_Bandcpm_Form_Entry</page_callback>
+    <title>Entry</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
 </menu>
