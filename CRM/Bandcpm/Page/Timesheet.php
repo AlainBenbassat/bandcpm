@@ -87,7 +87,8 @@ class CRM_Bandcpm_Page_Timesheet extends CRM_Core_Page {
 
     $sql = "
       select 
-        c.id,
+        t.id,
+        c.id contact_id,
         c.display_name,
         DATE_FORMAT(t.date_6, '%Y-%m-%d') date_6,
         t.from_7,
@@ -117,7 +118,8 @@ class CRM_Bandcpm_Page_Timesheet extends CRM_Core_Page {
     $dao = CRM_Core_DAO::executeQuery($sql);
     while ($dao->fetch()) {
       $rows[] = [
-        'contact_id' => $dao->entity_id,
+        'id' => $dao->id,
+        'contact_id' => $dao->contact_id,
         'contact_name' => $dao->display_name,
         'date' => $dao->date_6,
         'from' => $dao->from_7,
@@ -143,6 +145,7 @@ class CRM_Bandcpm_Page_Timesheet extends CRM_Core_Page {
     }
 
     $entries[] = [
+      'id' => '',
       'contact_id' => '',
       'contact_name' => '',
       'date' => '',

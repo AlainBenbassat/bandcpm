@@ -37,7 +37,7 @@
     {if $entry.hourly_fee lt 0}
       <td></td>
     {else}
-      <td><a href="#">edit</a></td>
+      <td><a href="/civicrm/timesheet/add?id={$entry.id}">edit</a></td>
     {/if}
   </tr>
   {/foreach}
