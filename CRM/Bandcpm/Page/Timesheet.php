@@ -18,6 +18,8 @@ class CRM_Bandcpm_Page_Timesheet extends CRM_Core_Page {
     $this->assign('monthTotal', number_format($this->monthTotal, 2, ',', '.'));
     $this->assign('year', $year);
     $this->assign('month', $month);
+    $this->assign('previous', $this->getLinkPrevious($month, $year));
+    $this->assign('next', $this->getLinkNext($month, $year));
 
     parent::run();
   }
@@ -170,6 +172,26 @@ class CRM_Bandcpm_Page_Timesheet extends CRM_Core_Page {
       return '0' . $i;
     }
     return $i;
+  }
+
+  private function getLinkPrevious(int $month, int $year) {
+    $month--;
+    if ($month < 0) {
+      $month = 12;
+      $year--;
+    }
+
+    return CRM_Utils_System::url('civicrm/timesheet', "month=$month&year=$year");
+  }
+
+  private function getLinkNext(int $month, int $year) {
+    $month++;
+    if ($month > 12) {
+      $month = 1;
+      $year++;
+    }
+
+    return CRM_Utils_System::url('civicrm/timesheet', "month=$month&year=$year");
   }
 
 }
