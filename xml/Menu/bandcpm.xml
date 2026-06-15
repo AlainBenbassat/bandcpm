@@ -30,4 +30,10 @@
     <title>Entry</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
+  <item>
+    <path>civicrm/timesheet/week</path>
+    <page_callback>CRM_Bandcpm_Page_TimesheetWeek</page_callback>
+    <title>TimesheetWeek</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
 </menu>
