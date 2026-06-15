@@ -11,7 +11,7 @@
       <tr>
         <td>{$week.week}</td>
         <td>{$week.month}</td>
-        <td>{$week.total}</td>
+        <td style="{$style}">{$week.total}</td>
       </tr>
     {/foreach}
 </table>
