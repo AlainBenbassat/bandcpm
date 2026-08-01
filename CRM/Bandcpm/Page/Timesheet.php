@@ -180,7 +180,7 @@ class CRM_Bandcpm_Page_Timesheet extends CRM_Core_Page {
 
   private function getLinkPrevious(int $month, int $year) {
     $month--;
-    if ($month < 0) {
+    if ($month <= 0) {
       $month = 12;
       $year--;
     }
