@@ -5,6 +5,7 @@ use CRM_Bandcpm_ExtensionUtil as E;
 
 class CRM_Bandcpm_Page_Timesheet extends CRM_Core_Page {
   private $monthTotal = 0.00;
+  private $numClients = 0;
 
   public function run() {
     $month = (int)CRM_Utils_Request::retrieveValue('month', 'Integer', date('m'));
@@ -15,6 +16,7 @@ class CRM_Bandcpm_Page_Timesheet extends CRM_Core_Page {
     CRM_Utils_System::setTitle("Timesheet $year-" . $this->addLeadningZero($month));
 
     $this->assign('data', $data);
+    $this->assign('numClients', $this->numClients);
     $this->assign('monthTotal', number_format($this->monthTotal, 2, ',', '.'));
     $this->assign('year', $year);
     $this->assign('month', $month);
@@ -30,6 +32,8 @@ class CRM_Bandcpm_Page_Timesheet extends CRM_Core_Page {
     $this->validateYearAndMonth($month, $year);
     $daoContacts = $this->getCompaniesToInvoice($month, $year);
     while ($daoContacts->fetch()) {
+      $this->numClients++;
+
       $entries = $this->getTimesheetForCompany($daoContacts->id, $month, $year);
       $this->addSum($entries);
       $this->addBlankLine($entries);
