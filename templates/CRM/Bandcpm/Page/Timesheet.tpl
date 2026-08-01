@@ -1,5 +1,5 @@
 <p><a class="crm-pager-link action-item crm-hover-button" href="{$previous}">&lt; Previous</a> <a class="crm-pager-link action-item crm-hover-button" href="{$next}">Next &gt;</a></p>
-<h2>{$monthTotal} Clients, Month Total: {$monthTotal} EUR</h2>
+<h2>{$numClients} clients, Month Total: {$monthTotal} EUR</h2>
 <table>
   <tr>
     <th>Project</th>
